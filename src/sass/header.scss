@@ -3,7 +3,9 @@
 .header {
   position: fixed;
   width: 100%;
+  min-height: 33px;
   padding: 16px;
+  background-color: map-get($colors, "white");
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -22,6 +24,9 @@
 
     &:checked ~ .header__nav {
       transform: scale(1, 1);
+    }
+    &:checked ~ .header__nav .header__list {
+      background: map-get($colors, "royal-purple");
     }
 
     &:checked ~ .header__nav a {
@@ -45,7 +50,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: map-get($colors, "royal-purple");
+    background: unset;
     text-align: left;
     transform: scale(1, 0);
     transform-origin: top;
@@ -86,7 +91,6 @@
     &__logo {
       min-height: 60px;
     }
-
     &__label {
       min-width: 80px;
     }
@@ -95,7 +99,6 @@
 
 @include media("min", "l") {
   .header {
-    width: 90%;
 
     &__logo {
       width: 20%;

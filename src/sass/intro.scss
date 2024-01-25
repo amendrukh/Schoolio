@@ -1,0 +1,106 @@
+@import "base";
+@import "controls";
+
+.intro {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 165px;
+  place-items: center;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 80px 16px 260px 16px;
+    display: grid;
+    grid-template-rows: 330px 1fr;
+    place-items: center;
+    color: map-get($colors, "white");
+  }
+
+  &__bg-blur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/intro/bg-blur.svg"), $linear-gradient;
+    background-size: 100% 100%;
+    border-radius: 6%;
+    z-index: 0;
+  }
+
+  &__bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/intro/globe.svg"), url("../assets/img/intro/microscope.svg");
+    background-position: top right, 0 65%;
+    background-repeat: no-repeat, no-repeat;
+    background-color: transparent;
+    background-size: auto;
+    opacity: 0.3;
+    z-index: 1;
+  }
+
+  .intro__img {
+    position: absolute;
+    bottom: 0;
+    max-height: 330px;
+  }
+
+  &__header {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    z-index: 1;
+
+    &-title {
+      font-size: 3.12rem;
+      font-weight: 900;
+    }
+
+    &-subtitle,
+    &-desc {
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+  }
+}
+
+@include media("min", "m") {
+  .intro {
+    &__header {
+      &-title {
+        font-size: 4.12rem;
+        font-weight: 900;
+      }
+
+      &-subtitle,
+      &-desc{
+        font-size: 2.4rem;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@include media("min", "l") {
+  .intro {
+    &__container {
+      padding-bottom: 460px;
+      gap: 20px;
+    }
+
+    &__header {
+      &-desc {
+        padding-top: 40px;
+      }
+    }
+
+    .intro__img {
+      max-height: 530px;
+    }
+  }
+}
