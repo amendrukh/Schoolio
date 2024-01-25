@@ -1,0 +1,128 @@
+@import 'base.scss';
+
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 999;
+
+  &__checkbox {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+
+    &:focus ~ .header__label {
+      outline: none;
+    }
+
+    &:checked ~ .header__nav {
+      transform: scale(1, 1);
+    }
+
+    &:checked ~ .header__nav a {
+      opacity: 1;
+      transition: opacity 250ms ease-in-out 250ms;
+    }
+  }
+
+  .header__menu,
+  .header__menu::before,
+  .header__menu::after {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: block;
+    content: url("../assets/img/header/menu.svg");
+  }
+
+  &__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: map-get($colors, "royal-purple");
+    text-align: left;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+
+    .header__list {
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+      list-style: none;
+
+      &-li {
+        margin: 16px;
+      }
+
+      &-link {
+        font-size: 1.5rem;
+        color: map-get($colors, "white");
+        text-decoration: none;
+        opacity: 0;
+        text-transform: uppercase;
+        transition: opacity 150ms ease-in-out;
+
+        &:hover {
+          text-shadow: -2px 1px 3px map-get($colors, "dodger-blue");
+        }
+      }
+    }
+  }
+}
+
+@include media("min", "l") {
+  .header {
+    width: 90%;
+    align-items: center;
+
+    &__logo {
+      width: 20%;
+    }
+
+    &__label {
+      display: none;
+    }
+
+    .header__nav {
+      position: relative;
+      width: 50%;
+      transform: none;
+      transition: none;
+      background-color: unset;
+
+      .header__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.25rem;
+
+        &-li {
+          margin: unset;
+        }
+
+        &-link {
+          transition: unset;
+          color: map-get($colors, "midnight-blue");
+          opacity: 1;
+
+          &:hover {
+            text-shadow: unset;
+            animation: underlineAnimation 0.3s ease-in-out forwards;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes underlineAnimation {
+  to {
+    border-bottom: 2px solid black;
+  }
+}
