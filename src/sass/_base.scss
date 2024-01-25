@@ -6,6 +6,8 @@ $sizes: ("s":390px, "m":768px, "l":992px);
 $font-family-kavoon: 'Kavoon', serif;
 $font-family-roboto: 'Roboto', sans-serif;
 
+$linear-gradient: linear-gradient(204.44deg, #5E328B 23.8%, #3988C4 144.62%);
+
 $colors: (
         "white":#FFFFFF,
         "yellow":#FFCC00,
@@ -14,7 +16,6 @@ $colors: (
         "dodger-blue": #3988C4,
         "midnight-blue": #1F2937,
         "royal-purple": #5E328B,
-
 );
 
 @mixin media($minmax, $media) {
@@ -45,15 +46,6 @@ body {
   }
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  margin: 35px auto;
-  display: flex;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
 ul, ol {
   list-style: none;
   padding: 0;
@@ -64,4 +56,17 @@ a {
   text-decoration: none;
   color: white;
   z-index: 1000;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  margin: 35px auto;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.section-spacing {
+  margin: 130px 0 0 0;
 }
