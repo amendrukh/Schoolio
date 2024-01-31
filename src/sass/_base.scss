@@ -62,13 +62,13 @@ a {
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding: 65px  0 35px 0;
+  //padding: 65px  0 35px 0;
   display: grid;
   grid-template-columns: 1fr;
   box-sizing: border-box;
 
   @include media("min", "m") {
-    padding: 112px  0 35px 0;
+    //padding: 112px  0 35px 0;
   }
 }
 

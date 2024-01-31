@@ -1,85 +1,90 @@
 @import 'base.scss';
 
-.header {
-  position: fixed;
-  width: 100%;
-  min-height: 33px;
-  padding: 16px;
-  background-color: map-get($colors, "white");
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  z-index: 999;
+.header__container {
+  position: relative;
+  min-height: 64px;
 
-  &__checkbox {
-    position: absolute;
-    top: -100%;
-    left: -100%;
-
-    &:focus ~ .header__label {
-      outline: none;
-    }
-
-    &:checked ~ .header__nav {
-      transform: scale(1, 1);
-    }
-    &:checked ~ .header__nav .header__list {
-      background: map-get($colors, "royal-purple");
-    }
-
-    &:checked ~ .header__nav a {
-      opacity: 1;
-      transition: opacity 250ms ease-in-out 250ms;
-    }
-  }
-
-  .header__menu,
-  .header__menu::before,
-  .header__menu::after {
-    position: relative;
-    height: 100%;
+  .header {
+    position: fixed;
     width: 100%;
-    display: block;
-    content: url("../assets/img/header/menu.svg");
-  }
+    height: max-content;
+    padding: 16px;
+    background-color: map-get($colors, "white");
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 999;
 
-  &__nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: unset;
-    text-align: left;
-    transform: scale(1, 0);
-    transform-origin: top;
-    transition: transform 400ms ease-in-out;
+    &__checkbox {
+      position: absolute;
+      top: -100%;
+      left: -100%;
 
-    .header__list {
-      margin: 0;
-      padding: 16px;
-      font-size: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
-
-      &-li {
-        position: relative;
-
+      &:focus ~ .header__label {
+        outline: none;
       }
 
-      &-link {
-        font-size: 1.5rem;
-        color: map-get($colors, "white");
-        text-decoration: none;
-        opacity: 0;
-        text-transform: uppercase;
-        transition: opacity 150ms ease-in-out;
+      &:checked ~ .header__nav {
+        transform: scale(1, 1);
+      }
 
-        &:hover {
-          text-shadow: -2px 1px 3px map-get($colors, "dodger-blue");
+      &:checked ~ .header__nav .header__list {
+        background: map-get($colors, "royal-purple");
+      }
+
+      &:checked ~ .header__nav a {
+        opacity: 1;
+        transition: opacity 250ms ease-in-out 250ms;
+      }
+    }
+
+    .header__menu,
+    .header__menu::before,
+    .header__menu::after {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: block;
+      content: url("../assets/img/header/menu.svg");
+    }
+
+    &__nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: unset;
+      text-align: left;
+      transform: scale(1, 0);
+      transform-origin: top;
+      transition: transform 400ms ease-in-out;
+
+      .header__list {
+        margin: 0;
+        padding: 16px;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px;
+
+        &-li {
+          position: relative;
+        }
+
+        &-link {
+          font-size: 1.5rem;
+          color: map-get($colors, "white");
+          text-decoration: none;
+          opacity: 0;
+          text-transform: uppercase;
+          transition: opacity 150ms ease-in-out;
+
+          &:hover {
+            text-shadow: -2px 1px 3px map-get($colors, "dodger-blue");
+          }
         }
       }
     }
@@ -87,66 +92,74 @@
 }
 
 @include media("min", "m") {
-  .header {
-    &__logo {
-      min-height: 60px;
-    }
-    &__label {
-      min-width: 80px;
+  .header__container {
+    min-height: 120px;
+
+    .header {
+      padding: 30px;
+
+      &__logo {
+        min-height: 60px;
+      }
+
+      &__label {
+        min-width: 80px;
+      }
     }
   }
 }
 
 @include media("min", "l") {
-  .header {
+  .header__container {
+    .header {
+      &__logo {
+        width: 20%;
+      }
 
-    &__logo {
-      width: 20%;
-    }
+      &__label {
+        display: none;
+      }
 
-    &__label {
-      display: none;
-    }
+      .header__nav {
+        position: relative;
+        width: 50%;
+        transform: none;
+        transition: none;
+        background-color: unset;
 
-    .header__nav {
-      position: relative;
-      width: 50%;
-      transform: none;
-      transition: none;
-      background-color: unset;
+        .header__list {
+          flex-direction: row;
+          align-items: center;
+          padding: 0;
+          gap: 0;
+          font-size: 1.25rem;
 
-      .header__list {
-        flex-direction: row;
-        align-items: center;
-        padding: 0;
-        gap: 0;
-        font-size: 1.25rem;
-
-        &-li {
-          padding: 10px 16px;
-        }
-
-        &-link {
-          transition: unset;
-          color: map-get($colors, "midnight-blue");
-          opacity: 1;
-
-          &:hover {
-            text-shadow: unset;
+          &-li {
+            padding: 10px 16px;
           }
 
-          & span {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 5px;
-            background: $linear-gradient;
-            transform: translateX(-50%);
-          }
+          &-link {
+            transition: unset;
+            color: map-get($colors, "midnight-blue");
+            opacity: 1;
 
-          &:hover span {
-            animation: underlineAnimation 0.3s ease-in-out forwards;
+            &:hover {
+              text-shadow: unset;
+            }
+
+            & span {
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              width: 0;
+              height: 5px;
+              background: $linear-gradient;
+              transform: translateX(-50%);
+            }
+
+            &:hover span {
+              animation: underlineAnimation 0.3s ease-in-out forwards;
+            }
           }
         }
       }
