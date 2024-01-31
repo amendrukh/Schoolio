@@ -111,6 +111,15 @@
     grid-template-rows:  1fr 1.66fr;
     gap: 94px;
 
+    &__bg-img {
+      background-image: url("../assets/img/intro/globe.svg"), url("../assets/img/intro/microscope.svg"), url("../assets/img/intro/dna.svg"), url("../assets/img/intro/note.svg"), url("../assets/img/intro/pencil.svg"), url("../assets/img/intro/ruler.svg") ;
+      background-position: top right, 0 45%, 17% 10%, 80% 30%, 95% 53%, 15% 62%;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-color: transparent;
+      background-size: auto;
+      opacity: 0.3;
+    }
+
     &__bg-blur {
       height: 75%;
     }
