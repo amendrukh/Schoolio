@@ -1,7 +1,7 @@
 @use "sass:map";
 @import url('https://fonts.googleapis.com/css2?family=Kavoon&family==Roboto:wght@300;400;500;700&display=swap');
 
-$sizes: ("s":390px, "m":768px, "l":992px);
+$sizes: ("s":390px, "m":768px, "l":992px, "xl": 1200px);
 
 $font-family-kavoon: 'Kavoon', serif;
 $font-family-roboto: 'Roboto', sans-serif;
@@ -11,6 +11,7 @@ $linear-gradient: linear-gradient(204.44deg, #5E328B 23.8%, #3988C4 144.62%);
 $colors: (
         "white":#FFFFFF,
         "yellow":#FFCC00,
+        "green": #A2CE46,
         "orange": #D97139,
         "dark-orange":#843E19,
         "dodger-blue": #3988C4,
